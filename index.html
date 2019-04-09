@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title>测试播放器</title>
+    <!-- 播放器js -->
+    <script src="js/player.js"></script>
+</head>
+
+<body>
+    <div class="prism-player" id="player-con" style="height:500px"></div>
+    <!-- 加载播放器，这句要在播放器容器div之后，因为需要容器id -->
+    <!-- 尺寸目前默认是跟随容器100% -->
+    <!-- 必要参数：容器id，视频地址，是否直播流 -->
+    <!-- 可选参数：视频流支持直播时移的情况下，liveStartTime起始时间，结束时间liveOverTime -->
+    <script>createPlayer("player-con", 
+    "https://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8",
+    true,
+    "2019-03-31T16:00:00.000Z",
+    "2019-04-31T16:00:00.000Z")</script>
+</body>
