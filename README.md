@@ -1,4 +1,4 @@
-基于[aliplayer](https://player.alicdn.com/aliplayer/index.html) 的视频播放器
+基于[aliplayer](https://player.alicdn.com/aliplayer/index.html) 的视频播放器。
 很简单的东西，没什么重要的改写，主要是给公司的前端一个范例。
 
 一、使用此播放器分3步<br>
