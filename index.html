@@ -17,9 +17,17 @@
     <!-- 尺寸目前默认是跟随容器100% -->
     <!-- 必要参数：容器id，视频地址，是否直播流 -->
     <!-- 可选参数：视频流支持直播时移的情况下，liveStartTime起始时间，结束时间liveOverTime -->
-    <script>createPlayer("player-con", 
-    "https://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8",
-    true,
-    "2019-03-31T16:00:00.000Z",
-    "2019-04-31T16:00:00.000Z")</script>
+    <script>createPlayer("player-con",
+            "https://playertest.longtailvideo.com/adaptive/bipbop/gear4/prog_index.m3u8",
+            false,
+            "2019-03-31T16:00:00.000Z",
+            "2019-04-31T16:00:00.000Z")</script>
+    <!-- 页面调用播放器的方法 -->
+    <div>
+        <button onclick="VideoCtrl('play')">play</button>
+        <button onclick="VideoCtrl('pause')">pause</button>
+        <!-- <button onclick="VideoCtrl('stop')">stop</button> -->
+    </div>
 </body>
+
+</html>

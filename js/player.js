@@ -6,6 +6,7 @@ let divHeight;
 let x0 = 0;
 let y0 = 0;
 let isPc = IsPC();
+var player;
 
 /**
  * 播放器基本配置
@@ -50,18 +51,12 @@ function createPlayer(viewID, mediaUrl, isLive, liveStartTime, liveOverTime) {
       "name": "fullScreenButton",
       "align": "tr",
       "x": 10,
-      "y": 10
-    },
-    {
-      "name": "setting",
-      "align": "tr",
-      "x": 15,
       "y": 12
     },
     {
       "name": "volume",
       "align": "tr",
-      "x": 5,
+      "x": 10,
       "y": 10
     }
   ];
@@ -97,6 +92,14 @@ function createPlayer(viewID, mediaUrl, isLive, liveStartTime, liveOverTime) {
   }else{
     ctrlBarSkinArray.push(
       {
+        "name": "setting",
+        "align": "tr",
+        "x": 10,
+        "y": 12
+      },
+    );
+    ctrlBarSkinArray.push(
+      {
         "name": "playButton",
         "align": "tl",
         "x": 15,
@@ -108,7 +111,7 @@ function createPlayer(viewID, mediaUrl, isLive, liveStartTime, liveOverTime) {
         "name": "timeDisplay",
         "align": "tl",
         "x": 10,
-        "y": 7
+        "y": 4
       },
     );
     ctrlBarSkinArray.push(
@@ -154,11 +157,34 @@ function createPlayer(viewID, mediaUrl, isLive, liveStartTime, liveOverTime) {
   playerJson.skinLayout = skinArray;
 
   //创建播放器
-  var player = new Aliplayer(playerJson, function (player) {
-    player._switchLevel = 0;
+  player = new Aliplayer(playerJson, function (player) {
+    // player._switchLevel = 0;//不知道什么用
     console.log("播放器创建了。");
   });
+  //播放完毕监听，其他事件监听也同基本Video标签写法
+  player.on("ended", endedHandle);
 }
+
+/**
+ * 相应页面发起的行为
+ */
+function VideoCtrl(act){
+  switch(act){
+    case "play":
+    player.play();
+    break
+    case "pause":
+    player.pause();
+    break
+  }
+}
+
+/**
+ * 播放完毕监听
+ */
+ function endedHandle(){
+   console.log("play end");
+ }
 
 /**
  * 获得容器尺寸
